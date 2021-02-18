@@ -1,0 +1,195 @@
+@import "fonts";
+@import "~swiper/swiper-bundle.css";
+
+.swiper-button-prev, .swiper-button-next {
+    color: white;
+
+    &:after {
+        font-size: 22px;
+    }
+}
+
+@mixin transition {
+    transition: all 0.2s ease-out;
+}
+
+* {
+    margin: 0;
+    font-family: Proxima Nova, sans-serif;
+}
+
+.top-panel {
+    background: black;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+
+
+    line-height: 36px;
+    font-size: 10px;
+}
+
+.nav {
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__burger {
+        svg {
+            widows: 20px;
+            height: 20px;
+        }
+    }
+
+    &__logo {
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    &__cart {
+
+        position: relative;
+
+        svg {
+            widows: 20px;
+            height: 20px;
+        }
+
+        .cnt {
+            background: black;
+            width: 16px;
+            height: 16px;
+            color: white;
+            border-radius: 100%;
+            text-align: center;
+            line-height: 16px;
+            font-size: 8px;
+
+            position: absolute;
+            top: -10px;
+            right: -10px;
+        }
+    }
+}
+
+.menu {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(23, 26, 24, 0.94);
+    opacity: 0;
+    visibility: hidden;
+
+    @include transition;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__inner {
+        padding: 61px 10px 10px 14px;
+        color: white;
+
+        ul {
+            padding-left: 30px;
+
+            li {
+                font-weight: 300;
+                list-style: none;
+                display: block;
+                margin-bottom: 26px;
+                font-size: 12px;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    &__close {
+
+        svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+            cursor: pointer;
+        }
+
+        margin-bottom: 20px;
+    }
+}
+
+.btn {
+
+    text-decoration: none;
+    cursor: pointer;
+
+    &--white {
+        border: 2px solid white;
+        color: white;
+        text-align: center;
+        display: inline-block;
+        padding: 10px 30px;
+        background: rgba(0, 0, 0, 0);
+
+        @include transition;
+
+        &:hover {
+            border-collapse: black;
+            color: black;
+            background: white;
+        }
+    }
+}
+
+.main-slider {
+    margin-bottom: 40px;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 500px;
+
+    img {
+        max-width: 100%;
+        object-fit: cover;
+        object-position: center;
+        max-height: 500px;
+        width: 100%;
+    }
+
+    .swiper-slide {
+        position: relative;
+        max-height: 500px;
+
+        .btn {
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.section-title {
+    color: #131814;
+    font-size: 25px;
+    width: fit-content;
+    margin: 0 auto 30px auto;
+    padding-bottom: 10px;
+
+    &:after {
+        content: " ";
+        display: block;
+        border-bottom: 3px solid #131814;
+        max-width: 100px;
+        margin: 10px auto 0 auto;
+    }
+}
