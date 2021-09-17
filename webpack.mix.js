@@ -1,4 +1,15 @@
 const mix = require('laravel-mix');
+const path = require('path');
 
-mix.js('src/js/index.js', 'build/js').react()
-    .sass('src/scss/style.scss', 'build/css');
+mix.setPublicPath('./build')
+    .js('src/js/index.js', 'js')
+    .sass('src/scss/style.scss', 'css');
+
+mix.webpackConfig({
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'build'),
+            publicPath: '/',
+        },
+    },
+})
